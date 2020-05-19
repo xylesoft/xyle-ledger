@@ -4,13 +4,13 @@ import createRootTransaction from '../transactions/create-root-transaction';
 import signTransaction from '../transactions/sign-transaction';
 
 
-export interface MockChainResponse {
+export interface MockLedgerResponse {
     transactions: (SignedTransaction | RootTransaction)[];
     publicKey: string;
     privateKey: string;
 }
 
-export const mockChain = (values: number[], passphrase: string): MockChainResponse => {
+export const mockLedger = (values: number[], passphrase: string): MockLedgerResponse => {
     const timestamp = ledgerTimestamp();
     const { transaction: rootTransaction, publicKey, privateKey } = createRootTransaction(0, timestamp, passphrase, 'My Test Ledger');
     const transactions: (SignedTransaction | RootTransaction)[] = [

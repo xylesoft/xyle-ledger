@@ -1,7 +1,7 @@
 import createRootTransaction from '../create-root-transaction';
 import ledgerTimestamp from '../../ledger-timestamp';
 import verifyLedger from '../../ledgers/verify-ledger';
-import { mockChain } from '../../__tests__/helper';
+import { mockLedger } from '../../__tests__/helper';
 import signTransaction from '../sign-transaction';
 
 describe.skip('Testing for signing of transactions', () => {
@@ -14,12 +14,12 @@ describe.skip('Testing for signing of transactions', () => {
     );
 
     it('should throw a verification error due to key mistmatch on root transaction', () => {
-        const { transactions: lTrans } = mockChain([25.99, 11, 54.11, -44.43], 'homer');
+        const { transactions: lTrans } = mockLedger([25.99, 11, 54.11, -44.43], 'homer');
         expect(() => verifyLedger(lTrans, publicKey)).toThrowError(/Signature error:.+/);
     });
 
     it('should be able to sign transactions', () => {
-        const { transactions: lTrans, publicKey: pubKey, privateKey: privKey } = mockChain(
+        const { transactions: lTrans, publicKey: pubKey, privateKey: privKey } = mockLedger(
             [25.99, 11, 54.11, -44.43],
             'homer'
         );

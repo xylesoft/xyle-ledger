@@ -14,13 +14,11 @@ export default (transactions: SignedTransaction[], publicKey: string) => {
     let parentTransaction = null;
     let iterationCount = 0;
     for (const transaction of transactions.sort(sortTransactionsDescendingOrder)) {
-        if (isSignedTransaction(parentTransaction)) {
-            // Make sure previous transaction is valid prior to checking
-            // current transaction.
-            if (!verifyTransaction(parentTransaction, publicKey)) {
-                throw new InvalidTransactionSignatureError(parentTransaction, iterationCount);
-            }
+        if (!verifyTransaction(transaction, publicKey)) {
+            throw new InvalidTransactionSignatureError(transaction, iterationCount);
+        }
 
+        if (isSignedTransaction(parentTransaction)) {
             // eslint-disable-next-line
             const { signature, ...unsignedTransaction } = transaction;
             if (!verify(unsignedTransaction, parentTransaction.seed, publicKey)) {

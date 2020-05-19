@@ -1,7 +1,7 @@
 import { SignedTransaction, RootTransaction } from '../contracts/transaction';
-export interface MockChainResponse {
+export interface MockLedgerResponse {
     transactions: (SignedTransaction | RootTransaction)[];
     publicKey: string;
     privateKey: string;
 }
-export declare const mockChain: (values: number[], passphrase: string) => MockChainResponse;
+export declare const mockLedger: (values: number[], passphrase: string) => MockLedgerResponse;
