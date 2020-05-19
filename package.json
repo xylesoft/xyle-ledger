@@ -34,9 +34,9 @@
         "tslib": "^1.11.2"
     },
     "scripts": {
-        "postinstall": "node_modules/.bin/tsc -b .",
-        "build": "rm -rf dist && rm -f tsconfig.tsbuildinfo && node_modules/.bin/tsc -b .",
-        "watch": "rm -rf dist && rm -f tsconfig.tsbuildinfo && node_modules/.bin/tsc -b -w",
+        "preversion": "rm -rf lib && rm -f tsconfig.tsbuildinfo && node_modules/.bin/tsc -b .",
+        "build": "rm -rf lib && rm -f tsconfig.tsbuildinfo && node_modules/.bin/tsc -b .",
+        "watch": "rm -rf lib && rm -f tsconfig.tsbuildinfo && node_modules/.bin/tsc -b -w",
         "test": "node_modules/.bin/jest"
     },
     "files": [
