@@ -1,7 +1,7 @@
-import { RootTransaction } from './contracts/transaction';
-import sign from './encryption/sign';
-import generate from './encryption/generate';
-import encrypt from './encryption/encrypt';
+import { RootTransaction } from '../contracts/transaction';
+import sign from '../encryption/sign';
+import generate from '../encryption/generate';
+import encrypt from '../encryption/encrypt';
 
 /**
  * To test decryptions execute the following command:

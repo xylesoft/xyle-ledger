@@ -1,6 +1,6 @@
-import { SignedTransaction, Transaction, RootTransaction } from './contracts/transaction';
+import { SignedTransaction, Transaction, RootTransaction } from '../contracts/transaction';
 import signTransaction from './sign-transaction';
-import ledgerTimestamp from './ledger-timestamp';
+import ledgerTimestamp from '../ledger-timestamp';
 
 export default (
     value: number,

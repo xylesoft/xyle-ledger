@@ -1,7 +1,7 @@
 import { SignedTransaction, RootTransaction, Transaction } from '../contracts/transaction';
 import ledgerTimestamp from '../ledger-timestamp';
-import createRootTransaction from '../create-root-transaction';
-import signTransaction from '../sign-transaction';
+import createRootTransaction from '../transactions/create-root-transaction';
+import signTransaction from '../transactions/sign-transaction';
 
 
 export interface MockChainResponse {
@@ -12,9 +12,9 @@ export interface MockChainResponse {
 
 export const mockChain = (values: number[], passphrase: string): MockChainResponse => {
     const timestamp = ledgerTimestamp();
-    const { transaction, publicKey, privateKey } = createRootTransaction(0, timestamp, passphrase, 'My Test Ledger');
+    const { transaction: rootTransaction, publicKey, privateKey } = createRootTransaction(0, timestamp, passphrase, 'My Test Ledger');
     const transactions: (SignedTransaction | RootTransaction)[] = [
-        transaction,
+        rootTransaction,
     ];
 
     values.forEach((value: number, index: number) => {
@@ -25,7 +25,7 @@ export const mockChain = (values: number[], passphrase: string): MockChainRespon
                     reference: `${index + 1}. Transaction`,
                     timestamp: ledgerTimestamp(),
                 } as Transaction,
-                transaction,
+                transactions[transactions.length - 1],
                 privateKey,
                 passphrase
             )
