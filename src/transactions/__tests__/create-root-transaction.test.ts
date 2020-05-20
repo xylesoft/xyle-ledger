@@ -2,7 +2,7 @@
 import createRootTransaction from '../create-root-transaction';
 import { RootTransaction } from '../../contracts/transaction';
 import { xyleLedgerDecrypt, xyleLedgerVerify } from '../../encryption';
-import ledgerTimestamp from '../../ledger-timestamp';
+import ledgerTimestamp from '../../ledgers/ledger-timestamp';
 
 describe('Testing for the creation of a root transactions', () => {
     const value = 700;

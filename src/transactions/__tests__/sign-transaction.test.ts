@@ -1,5 +1,5 @@
 import createRootTransaction from '../create-root-transaction';
-import ledgerTimestamp from '../../ledger-timestamp';
+import ledgerTimestamp from '../../ledgers/ledger-timestamp';
 import verifyLedger from '../../ledgers/verify-ledger';
 import { mockLedger } from '../../__tests__/helper';
 import signTransaction from '../sign-transaction';

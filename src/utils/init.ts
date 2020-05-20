@@ -4,7 +4,7 @@
 
 import { RootTransaction } from '../contracts/transaction';
 import createRootTransaction from '../transactions/create-root-transaction';
-import ledgerTimestamp from '../ledger-timestamp';
+import ledgerTimestamp from '../ledgers/ledger-timestamp';
 
 const [node, file, ledgerName] = process.argv;
 

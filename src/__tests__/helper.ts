@@ -1,5 +1,5 @@
 import { SignedTransaction, RootTransaction, Transaction } from '../contracts/transaction';
-import ledgerTimestamp from '../ledger-timestamp';
+import ledgerTimestamp from '../ledgers/ledger-timestamp';
 import createRootTransaction from '../transactions/create-root-transaction';
 import signTransaction from '../transactions/sign-transaction';
 
