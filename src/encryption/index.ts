@@ -1,10 +1,8 @@
-import decrypt from './decrypt';
-import encrypt from './encrypt';
-import generate from './generate';
-import sign from './sign';
-import verify from './verify';
+export { default as xyleLedgerDecrypt } from './decrypt';
+export { default as xyleLedgerEncrypt } from './encrypt';
+export { default as xyleLedgerGenerate } from './generate';
+export { default as xyleLedgerSign } from './sign';
+export { default as xyleLedgerVerify } from './verify';
 
 export const SHA_CONFIG = 'RSA-SHA512';
 export const ENCRYPT_FORMAT = 'hex';
-
-export { decrypt, encrypt, generate, sign, verify };

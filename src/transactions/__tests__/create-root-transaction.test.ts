@@ -1,7 +1,7 @@
 
 import createRootTransaction from '../create-root-transaction';
 import { RootTransaction } from '../../contracts/transaction';
-import { decrypt, verify } from '../../encryption';
+import { xyleLedgerDecrypt, xyleLedgerVerify } from '../../encryption';
 import ledgerTimestamp from '../../ledger-timestamp';
 
 describe('Testing for the creation of a root transactions', () => {
@@ -22,7 +22,7 @@ describe('Testing for the creation of a root transactions', () => {
         // Validate seed
         const { seed } = transaction;
         const decryptedJson = JSON.parse(
-            decrypt(seed, privateKey, 'homer')
+            xyleLedgerDecrypt(seed, privateKey, 'homer')
         ) as RootTransaction;
 
         expect(transaction.value).toEqual(decryptedJson.value);
@@ -32,6 +32,6 @@ describe('Testing for the creation of a root transactions', () => {
 
     it('should be able to check signature', () => {
         const { signature, ...seededTransaction } = transaction;
-        expect(verify(seededTransaction, signature, publicKey)).toBeTruthy();
+        expect(xyleLedgerVerify(seededTransaction, signature, publicKey)).toBeTruthy();
     });
 });

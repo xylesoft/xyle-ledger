@@ -3,7 +3,6 @@ import ledgerTimestamp from '../ledger-timestamp';
 import createRootTransaction from '../transactions/create-root-transaction';
 import signTransaction from '../transactions/sign-transaction';
 
-
 export interface MockLedgerResponse {
     transactions: (SignedTransaction | RootTransaction)[];
     publicKey: string;

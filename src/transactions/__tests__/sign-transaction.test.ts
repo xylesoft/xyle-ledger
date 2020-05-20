@@ -4,9 +4,9 @@ import verifyLedger from '../../ledgers/verify-ledger';
 import { mockLedger } from '../../__tests__/helper';
 import signTransaction from '../sign-transaction';
 
-describe.skip('Testing for signing of transactions', () => {
+describe('Testing for signing of transactions', () => {
     // secondary ledger for checking error guards
-    const { transaction, publicKey, privateKey } = createRootTransaction(
+    const { publicKey } = createRootTransaction(
         0,
         ledgerTimestamp(),
         'homer',
