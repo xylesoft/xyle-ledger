@@ -17,7 +17,7 @@ const rootTransaction = {
 const { transaction, publicKey, privateKey } = createRootTransaction(
     700,
     ledgerTimestamp(),
-    'homersmac',
+    'homer',
     'My First Ledger'
 );
 
