@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "description": "Basic ledger component, to build RSA secured immutable ledgers of transactions.",
     "author": "Jeramy Wenserit",
-    "module": "lib/index.js",
+    "main": "lib",
     "types": "lib/index.d.ts",
     "license": "MIT",
     "dependencies": {
