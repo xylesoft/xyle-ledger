@@ -6,7 +6,7 @@ import signTransaction from '../sign-transaction';
 
 describe('Testing for signing of transactions', () => {
     // secondary ledger for checking error guards
-    const { publicKey } = createRootTransaction(
+    const { publicKey, privateKey } = createRootTransaction(
         0,
         ledgerTimestamp(),
         'homer',
@@ -15,7 +15,7 @@ describe('Testing for signing of transactions', () => {
 
     it('should throw a verification error due to key mistmatch on root transaction', () => {
         const { transactions: lTrans } = mockLedger([25.99, 11, 54.11, -44.43], 'homer');
-        expect(() => verifyLedger(lTrans, publicKey)).toThrowError(/Signature error:.+/);
+        expect(() => verifyLedger(lTrans, publicKey, privateKey, 'homer')).toThrowError(/Signature error:.+/);
     });
 
     it('should be able to sign transactions', () => {
@@ -37,6 +37,6 @@ describe('Testing for signing of transactions', () => {
             )
         );
 
-        expect(verifyLedger(lTrans, pubKey)).toBeTruthy();
+        expect(verifyLedger(lTrans, pubKey, privKey, 'homer')).toBeTruthy();
     });
 });
