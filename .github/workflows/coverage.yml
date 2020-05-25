@@ -23,9 +23,15 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Jest Code Coverage Report
-      uses: ziishaned/jest-reporter-action@0.1.1
+      uses: romeovs/lcov-reporter-action@v0.2.16
       with:
-        # Github token
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        # Specify a command to run the tests
-        test-command: yarn test --coverage
+        lcov-file: ./coverage/lcov.info
+#       uses: ziishaned/jest-reporter-action@0.1.1
+#       with:
+#         # Github token
+#         github-token: ${{ secrets.GITHUB_TOKEN }}
+#         # Specify a command to run the tests
+#         test-command: yarn test --coverage
+        
+    
