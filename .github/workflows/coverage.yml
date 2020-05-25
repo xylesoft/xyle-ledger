@@ -21,6 +21,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    - run: yarn install --dev
     - run: yarn test
     - name: Jest Code Coverage Report
       uses: romeovs/lcov-reporter-action@v0.2.16
