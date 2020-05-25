@@ -1,3 +1,3 @@
 export declare namespace XyleLedgerSegments {
-    const dateKeySegmenter: (transaction: import("..").SignedTransaction, format?: string) => string;
+    const dateKeySegmenter: (transaction: import("..").Transaction, format?: string) => string;
 }
