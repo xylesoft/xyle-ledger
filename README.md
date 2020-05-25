@@ -1,4 +1,5 @@
 ![Tests](https://github.com/xylesoft/xyle-ledger/workflows/XyleLedger%20Tests/badge.svg?branch=master)
+![Coverage Report](https://github.com/xylesoft/xyle-ledger/workflows/Coverage%20Report/badge.svg)
 
 
 # xyle-ledger - A basic time series encrypted ledger.
