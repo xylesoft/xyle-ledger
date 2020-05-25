@@ -39,7 +39,7 @@
         "preversion": "rm -rf lib && rm -f tsconfig.tsbuildinfo && node_modules/.bin/tsc -b .",
         "build": "rm -rf lib && rm -f tsconfig.tsbuildinfo && node_modules/.bin/tsc -b .",
         "watch": "rm -rf lib && rm -f tsconfig.tsbuildinfo && node_modules/.bin/tsc -b -w",
-        "test": "node_modules/.bin/jest"
+        "test": "node_modules/.bin/jest --coverage"
     },
     "files": [
         "lib",
