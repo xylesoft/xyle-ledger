@@ -34,7 +34,7 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         test-command: yarn test
-        
+
 #       uses: romeovs/lcov-reporter-action@v0.2.18-alpha.12
 #       with:
 #         github-token: ${{ secrets.GITHUB_TOKEN }}
