@@ -27,9 +27,14 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - run: yarn install --dev
+    - run: yarn test
 
     - name: Jest Code Coverage Report
-      uses: ChristiaanScheermeijer/jest-reporter-action@v0.4.0
+      uses: romeovs/lcov-reporter-action@v0.2.18-alpha.12
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        test-command: yarn test
+        lcov-file: ./coverage/lcov.info
+    #   uses: ChristiaanScheermeijer/jest-reporter-action@v0.4.0
+    #   with:
+    #     github-token: ${{ secrets.GITHUB_TOKEN }}
+    #     test-command: yarn test
