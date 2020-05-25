@@ -1,4 +1,4 @@
-![XyleLedger Tests](https://github.com/xylesoft/xyle-ledger/workflows/XyleLedger%20Tests/badge.svg?branch=master)
+![Tests](https://github.com/xylesoft/xyle-ledger/workflows/XyleLedger%20Tests/badge.svg?branch=master)
 
 
 # xyle-ledger - A basic time series encrypted ledger.
@@ -18,6 +18,52 @@ Each ledger consists of two distinct types types of transactions, those being a 
 is to signify a different origin compared to a `SignedTransactions`.
 
 A `Root Transaction` can be either the very first transaction of a ledger or the first transaction of a new segment in the ledger.
+
+### Ledger directory (Filesystem + S3 approach)
+
+A ledger consists of two distinct files, consisting of a ledger header definition JSON file `head.json` and one or more transaction ledgers `<segment>.jsonl`.
+
+A standard filesystem based ledger should consist of the following structure:
+```
+    my-ledger\
+        head.json
+        MySegment1.jsonl
+        ... more jsonl files ...
+```
+
+This ledger structure can also be used with S3 or any document/object store with no modification. Although if you wish to store the data in a different database management system, you must create an abstraction interface for the desired interface. This is very much the responsbility of the implementor of *XyleLedger*, as the project does not concern it self with how or where the ledger is stored.
+
+## Head
+
+The header file (`head.json`) contains all the index information about the respective ledger. It contains the sequence numbers and locations of each segment file.
+
+The structure of the JSON file is:
+```typescript
+interface SegmentDefinition {
+    file: string;
+    seq: number;
+}
+
+interface Head {
+    segments: {
+        [segment: string]: SegmentDefinition;
+    };
+    lastSeqNumber: number;
+}
+```
+
+An example of the most basic `head.json` using the `dateKeySegmenter()`:
+```json
+{
+    "segments": {
+        "2020-05": {
+            "file": "2020-05.json",
+            "seq": 1
+        }
+    },
+    "lastSeqNumber": 1
+}
+```
 
 ## Segments
 
@@ -57,3 +103,8 @@ In the case if a root ledger transaction, then we use an encrypted payload of th
 With segments a root transaction is also employed, the difference is the seed is a signature of the previous segment jsonl file.
 
 ## Utils
+
+
+## License
+
+This project is MIT licensed. See the [linked license](LICENSE.md) for details.
