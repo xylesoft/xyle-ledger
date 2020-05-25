@@ -23,7 +23,7 @@ jobs:
     - uses: actions/checkout@v2
     - run: yarn install --dev
     - name: Jest Code Coverage Report
-      uses: ziishaned/jest-reporter-action@v0.0.1
+      uses: ChristiaanScheermeijer/jest-reporter-action@v0.4.0
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         test-command: yarn test
