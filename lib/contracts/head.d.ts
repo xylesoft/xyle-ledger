@@ -2,7 +2,7 @@ export interface SegmentDefinition {
     file: string;
     seq: number;
 }
-export default interface Head {
+export interface Head {
     segments: Map<string, SegmentDefinition>;
     lastSeqNumber: number;
 }
