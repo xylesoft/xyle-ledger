@@ -24,8 +24,12 @@ jobs:
     - run: yarn install --dev
     - run: yarn test
     - name: Jest Code Coverage Report
-      uses: romeovs/lcov-reporter-action@v0.2.16
+      uses: ziishaned/jest-reporter-action@v0.0.1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        lcov-file: $GITHUB_WORKSPACE/coverage/lcov.info
+        test-command: "yarn jest --coverage"
+    #   uses: romeovs/lcov-reporter-action@v0.2.16
+    #   with:
+    #     github-token: ${{ secrets.GITHUB_TOKEN }}
+    #     lcov-file: $GITHUB_WORKSPACE/coverage/lcov.info
 
