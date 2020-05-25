@@ -4,6 +4,8 @@ export interface SegmentDefinition {
 }
 
 export interface Head {
-    segments: Map<string, SegmentDefinition>;
+    segments: {
+        [segment: string]: SegmentDefinition;
+    };
     lastSeqNumber: number;
 }
