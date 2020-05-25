@@ -3,6 +3,8 @@ export interface SegmentDefinition {
     seq: number;
 }
 export interface Head {
-    segments: Map<string, SegmentDefinition>;
+    segments: {
+        [segment: string]: SegmentDefinition;
+    };
     lastSeqNumber: number;
 }
