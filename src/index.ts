@@ -4,3 +4,4 @@ export * from './ledgers';
 export * from './contracts/transaction';
 export * from './contracts/head';
 export * from './segments';
+export * from './query';
